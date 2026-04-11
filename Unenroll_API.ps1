@@ -20,7 +20,17 @@ function authenticate {
     $Algorithm = "HS256"
     $ContentType = "application/json"
     $apiMethod = "POST"
-    $RequestUrl = "https://api.absolute.com/jws/validate"
+    $RequestUrl = ""
+    # If you log in to https://cc.absolute.com,
+    # use https://api.absolute.com/jws/validate.
+    # If you log in to https://cc.us.absolute.com,
+    # use https://api.us.absolute.com/jws/validate.
+    # If you log in to https://cc.eu2.absolute.com,
+    # use https://api.eu2.absolute.com/jws/validate.
+    # If you log in to https://cc.in1.absolute.com,
+    # use https://api.in1.absolute.com/jws/validate.
+    # If you log in to https://cc.fr1.absolutegov.com, 
+    # use https://api.fr1.absolutegov.com/jws/validate.
 
     #This is to grab the time
     $issat = [long][double]::parse((Get-Date -Date $((Get-Date).addseconds($ValidforSeconds).ToUniversalTime()) -UFormat %s)) * 1000
